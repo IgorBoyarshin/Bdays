@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: white;
+}
+
+.main {
+    height: 100%;
+    background: linear-gradient(rgba(247, 150, 61, 1.0), rgba(263, 62, 23, 1.0));
+    color: white;
+    font-family: sans-serif;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+
+$season_radius: 25vmin;
+$months_radius: 19vmin;
+$center_radius: 13.6vmin;
+$pointer_radius_multiplier: 1.2;
+$pointer_radius: ($season_radius - $months_radius) * $pointer_radius_multiplier;
+$months_text_shift: $months_radius - ($months_radius - $center_radius)/2;
+.circle-months {
+    position: absolute;
+    width: 2*$months_radius;
+    height: 2*$months_radius;
+    border-radius: $months_radius;
+    background: linear-gradient(rgba(247, 150, 61, 1.0), rgba(263, 62, 23, 1.0));
+    z-index: 2;
+    border: 3px solid black;
+}
+.circle-center {
+    position: absolute;
+    width: 2 * $center_radius;
+    height: 2 * $center_radius;
+    border-radius: $center_radius;
+    border: 4px solid black;
+    background: linear-gradient(rgba(263, 62, 23, 1.0), rgba(247, 150, 61, 1.0));
+    z-index: 4;
+}
+.center-text {
+    position: absolute;
+    color: white;
+    z-index: 10;
+}
+.center-text-title {
+    font-size: 3vmin;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;
+    margin-bottom: 1vmin;
+}
+.center-text-entry {
+    font-style: italic;
+    font-size: 2vmin;
+}
+
+.pointers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pointer {
+    position: absolute;
+    width: $pointer_radius;
+    height: 2px;
+    transform-origin: left center;
+    z-index: 5;
+    background-color: blue;
+    box-shadow: 0px 0px 3px 1px blue;
+}
+.pointer:hover {
+    height: 5px;
+    background-color: red;
+}
+
+.pointer-text {
+    position: absolute;
+    color: white;
+    font-size: 2vmin;
+    z-index: 12;
+}
+.pointer-text:hover {
+    font-weight: bold;
+    z-index: 13;
+    background: rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 8px red;
+}
+
+.line-frontier {
+    position: absolute;
+    width: $season_radius;
+    height: 5px;
+    transform-origin: left center;
+    z-index: 3;
+    background-color: black;
+    box-shadow: 0px 0px 5px 2px black;
+}
+.line-subfrontier {
+    position: absolute;
+    width: $season_radius;
+    height: 1px;
+    transform-origin: left center;
+    z-index: 3;
+    background-color: black;
+    box-shadow: 0px 0px 3px 1px black;
+}
+.after-december {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 1 * 360deg / 12));
+}
+.after-january {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 2 * 360deg / 12));
+}
+.after-february {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 3 * 360deg / 12));
+}
+.after-march {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 4 * 360deg / 12));
+}
+.after-april {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 5 * 360deg / 12));
+}
+.after-may {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 6 * 360deg / 12));
+}
+.after-june {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 7 * 360deg / 12));
+}
+.after-july {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 8 * 360deg / 12));
+}
+.after-august {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 9 * 360deg / 12));
+}
+.after-september {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 10 * 360deg / 12));
+}
+.after-october {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 11 * 360deg / 12));
+}
+.after-november {
+    transform: translate($season_radius * 0.5, 0px) rotate(calc(-135deg + 12 * 360deg / 12));
+}
+
+.month {
+    position: absolute;
+    font-size: 2.7vmin;
+    z-index: 2;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0px 0px 4px white;
+}
+.december {
+    transform: rotate(calc(-135deg + 0 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+.january {
+    transform: rotate(calc(-135deg + 1 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+.february {
+    transform: rotate(calc(-135deg + 2 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+.march {
+    transform: rotate(calc(-135deg + 3 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+.april {
+    transform: rotate(calc(-135deg + 4 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+.may {
+    transform: rotate(calc(-135deg + 5 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.june {
+    transform: rotate(calc(-135deg + 6 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.july {
+    transform: rotate(calc(-135deg + 7 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.august {
+    transform: rotate(calc(-135deg + 8 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.september {
+    transform: rotate(calc(-135deg + 9 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.october {
+    transform: rotate(calc(-135deg + 10 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(-90deg);
+}
+.november {
+    transform: rotate(calc(-135deg + 11 * 360deg / 12 + 360deg / 24))
+               translate($months_text_shift, 0px)
+               rotate(90deg);
+}
+
+.season {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: $season_radius;
+}
+.winter {
+  border-right:  $season_radius solid transparent;
+  border-top:    $season_radius solid white;
+  border-left:   $season_radius solid transparent;
+  border-bottom: $season_radius solid transparent;
+}
+.spring {
+  border-right:  $season_radius solid green;
+  border-top:    $season_radius solid transparent;
+  border-left:   $season_radius solid transparent;
+  border-bottom: $season_radius solid transparent;
+}
+.summer {
+  border-right:  $season_radius solid transparent;
+  border-top:    $season_radius solid transparent;
+  border-left:   $season_radius solid transparent;
+  border-bottom: $season_radius solid red;
+}
+.autumn {
+  border-right:  $season_radius solid transparent;
+  border-top:    $season_radius solid transparent;
+  border-left:   $season_radius solid orange;
+  border-bottom: $season_radius solid transparent;
+}
