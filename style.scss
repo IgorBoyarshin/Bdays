@@ -25,7 +25,7 @@ body {
 }
 
 
-$season_radius: 25vmin;
+$season_radius: 28vmin;
 $months_radius: 19vmin;
 $center_radius: 13.6vmin;
 $pointer_radius_multiplier: 1.2;
@@ -80,18 +80,21 @@ $months_text_shift: $months_radius - ($months_radius - $center_radius)/2;
     background-color: blue;
     box-shadow: 0px 0px 3px 1px blue;
 }
-.pointer:hover {
+.pointer.pointer-hover {
     height: 5px;
     background-color: red;
+    box-shadow: 0px 0px 4px 2px red;
+    z-index: 20;
 }
 
 .pointer-text {
     position: absolute;
+    line-height: 1.0em;
     color: white;
     font-size: 2vmin;
     z-index: 12;
 }
-.pointer-text:hover {
+.pointer-text.pointer-text-hover {
     font-weight: bold;
     z-index: 13;
     background: rgba(0, 0, 0, 0.6);
