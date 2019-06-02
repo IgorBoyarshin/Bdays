@@ -1,0 +1,2 @@
+ node_modules/.bin/sass --watch style.scss style.css
+ live-server
