@@ -35,6 +35,7 @@ const bdayDatabase = function() {
     {date: '11.06.0',    name: 'Ira Ivanova'},
     {date: '01.04.1998', name: 'Igor Boiarshyn'},
     {date: '04.04.1972', name: 'Laura Boiarshyna'},
+    {date: '23.10.1998', name: 'Max Pichak'},
     {date: '21.05.1995', name: 'Galya Krombet'},
   ];
 
